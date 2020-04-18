@@ -6,4 +6,3 @@ RUN service apache2 restart
 
 EXPOSE 80
 
-RUN apt-get update && apt-get install -y mysql-client
