@@ -25,7 +25,7 @@ Files you upload will be stored in your Known install's "Uploads" directory.
 
 Your database will be stored in `/vendor/mapkyca/mapkyca-known-docker/db/`. 
 
-IMPORTANT
+**IMPORTANT**
 
 This is designed to be used for temporary development, not production. I make no promises as to what happens to the database directory when doing composer updates.
 
