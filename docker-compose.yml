@@ -11,6 +11,7 @@ services:
     volumes:
       - ../../../:/var/www/html
       - ../../../Uploads/:/var/www/data
+      - ./config.ini:/var/www/html/configuration/config.ini
     depends_on:
       - db
   db:
