@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  known:
+    container_name: known
+    image: mapkyca/mapkyca-known-docker
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ../../../:/var/www/html
+      - ../../../Uploads/:/var/www/data
+    depends_on:
+      - db
+  db:
+    container_name: known-database
+    build:
+      context: .
+      dockerfile: ./db/Dockerfile
+    expose:
+      - '3306'
+    volumes:
+      - ./db:/var/lib/mysql
+      - ../../../warmup/schemas/mysql/mysql.sql:/docker-entrypoint-initdb.d/mysql.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: known
+      MYSQL_DATABASE: known
+      MYSQL_USER: known
+      MYSQL_PASSWORD: 12345
+    restart: always           
+        
