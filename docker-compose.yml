@@ -22,7 +22,7 @@ services:
     expose:
       - '3306'
     volumes:
-      - ./db:/var/lib/mysql
+      - ./db/run:/var/lib/mysql
       - ../../../warmup/schemas/mysql/mysql.sql:/docker-entrypoint-initdb.d/mysql.sql
     environment:
       MYSQL_ROOT_PASSWORD: known
